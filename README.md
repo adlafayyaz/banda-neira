@@ -8,8 +8,6 @@
   <p>HTML · Tailwind CSS · JavaScript · GSAP</p>
 </div>
 
-<img src="assets/images/hero-home.webp" alt="Clear water along the tropical coastline of the Banda Islands" width="100%" />
-
 ## About the project
 
 BANDA. introduces Banda Neira and its neighboring islands through photography, local history, and practical travel information. Its warm paper backgrounds, handwritten headings, and coastal colors take inspiration from a travel journal.
