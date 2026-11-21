@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" width="1440" height="212" viewBox="0 0 1440 212" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 124.38C120 149.38 206 170.38 329 119.38C459 65.38 547 9.38 681 26.38C824 44.38 943 125.38 1055 134.38C1172 143.38 1285 76.38 1440 72.38L1440 214L0 214L0 124.38Z" fill="#F4EBDD"/>
+  <path transform="translate(22 120.38)" d="M0 22C75 44 126 37 184 0C139 38 74 49 0 29L0 22Z" fill="#F4EBDD"/>
+  <path transform="translate(175 89.38)" d="M201 0C136 11 68 30 0 33C79 38 141 17 201 0Z" fill="#F4EBDD"/>
+  <path transform="translate(529 0)" d="M198 9.38C126 -1.62 63 -5.62 0 12.38C65 1.38 116 1.38 198 9.38Z" fill="#F4EBDD"/>
+  <path transform="translate(335 72.56)" d="M324 5.82C219 -9.18 105 4.82 0 47.82C108 19.82 207 2.82 324 5.82Z" fill="#122C29"/>
+  <path transform="translate(654 40.06)" d="M199 26.32C135 4.32 75 -6.68 0 4.32C63 7.32 128 8.32 199 26.32Z" fill="#122C29"/>
+  <path transform="translate(1043 142.38)" d="M205 0C139 17 70 22 0 0C66 28 144 26 205 0Z" fill="#122C29"/>
+  <path transform="translate(1240 76.38)" d="M112 0C83 9 43 18 0 25C37 25 81 16 112 0Z" fill="#F4EBDD"/>
+  <path transform="translate(1247 150.38)" d="M88 0C63 4 33 9 0 14C32 15 61 9 88 0Z" fill="#122C29"/>
+</svg>

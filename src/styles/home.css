@@ -1,0 +1,440 @@
+body[data-page="home"] .journal-hero {
+  height: 100svh;
+  min-height: 640px;
+  max-height: 900px;
+}
+
+body[data-page="home"] .journal-hero-copy {
+  position: absolute;
+  top: clamp(148px, 21vh, 200px);
+  left: 50%;
+  translate: -50% 0;
+  width: min(790px, calc(100% - 220px));
+  padding: 0;
+}
+
+body[data-page="home"] .journal-hero h1 {
+  font-size: clamp(4.25rem, 9.6vw, 9rem);
+  line-height: 1.08;
+}
+
+body[data-page="home"] .journal-hero p {
+  max-width: 540px;
+  margin: 16px auto 0;
+  font-size: clamp(1rem, 1.4vw, 1.1875rem);
+  line-height: 1.48;
+}
+
+.hero-scroll {
+  position: absolute;
+  z-index: 2;
+  bottom: clamp(154px, 23vh, 216px);
+  left: 50%;
+  translate: -50% 0;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #fff4e1;
+  transition: background-color 160ms ease;
+}
+
+.hero-scroll:hover {
+  background: rgb(255 244 225 / 12%);
+}
+
+.hero-scroll:focus-visible {
+  outline: 2.5px solid #fff4e1;
+  outline-offset: 3px;
+}
+
+.hero-scroll-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid rgb(255 244 225 / 62%);
+  background: rgb(18 39 37 / 28%);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.hero-scroll:hover .hero-scroll-icon {
+  background: rgb(255 244 225 / 18%);
+  border-color: #fff4e1;
+  transform: translateY(2px);
+}
+
+.hero-scroll svg {
+  width: 20px;
+  height: 20px;
+}
+
+body[data-page="home"] main.journal-container {
+  display: flex;
+  flex-direction: column;
+  gap: 82px;
+  padding-top: 52px;
+}
+
+.editorial-intro {
+  display: grid;
+  grid-template-columns: 530fr 430fr;
+  gap: 44px;
+  align-items: center;
+  min-height: 152px;
+  scroll-margin-top: 36px;
+}
+
+.editorial-intro h2 {
+  font-family: "Water Brush", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(3.5rem, 5.2vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+  padding-left: clamp(0px, 8vw, 110px);
+}
+
+.editorial-intro p {
+  max-width: 430px;
+  font-size: 1.125rem;
+  line-height: 1.52;
+  color: #2f4940;
+}
+
+.feature-photo {
+  width: 100%;
+  height: clamp(300px, 40vw, 540px);
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.feature-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 18px;
+}
+
+.feature-caption h2 {
+  font-size: clamp(1.875rem, 3vw, 2.625rem);
+}
+
+.feature-caption p {
+  max-width: 68ch;
+  margin-top: 10px;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: #455d54;
+}
+
+.water-feature {
+  display: grid;
+  grid-template-columns: 380fr 650fr;
+  align-items: center;
+  gap: 44px;
+  padding: 32px;
+  background: #dce9de;
+  border: 1px solid #173c3514;
+  border-radius: 16px;
+}
+
+.water-feature h2 {
+  font-size: clamp(1.875rem, 2.8vw, 2.5rem);
+}
+
+.water-feature p {
+  margin-block: 16px 22px;
+  font-size: 1.0625rem;
+  line-height: 1.52;
+  color: #3c544b;
+}
+
+.water-feature figure {
+  margin: 0;
+}
+
+.water-feature img {
+  width: 100%;
+  height: clamp(250px, 28vw, 360px);
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.journal-islands {
+  display: grid;
+  grid-template-columns: 654fr 456fr;
+  gap: 26px;
+  margin-top: 26px;
+  align-items: start;
+}
+
+.journal-islands article > a:first-child {
+  display: block;
+}
+
+.journal-islands img {
+  width: 100%;
+  height: 310px;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 240ms ease;
+}
+
+.journal-islands article:nth-child(2) img {
+  height: 256px;
+}
+
+.journal-islands article > a:first-child:hover img {
+  transform: translateY(-3px);
+}
+
+.journal-islands h3 {
+  margin-top: 12px;
+  font-size: 1.5rem;
+}
+
+.journal-islands p {
+  margin: 6px 0 12px;
+  font-size: 0.9375rem;
+  color: #455d54;
+}
+
+.journal-islands .text-link {
+  background: #fff8e9;
+  border: 1px solid #173c3520;
+  border-radius: 99px;
+  padding: 9px 16px;
+  min-height: 44px;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.journal-islands .text-link:hover {
+  background: #eaeedf;
+  border-color: #173c3540;
+  text-decoration: none;
+}
+
+.sunset-feature {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 456px;
+  padding: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  color: #fff4e1;
+}
+
+.sunset-feature img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.sunset-feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(16 44 42 / 82%) 0%,
+    rgb(16 44 42 / 46%) 55%,
+    rgb(16 44 42 / 20%) 100%
+  );
+}
+
+.sunset-feature h2 {
+  font-family: "Water Brush", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(3.375rem, 5vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.sunset-feature p {
+  max-width: 44ch;
+  margin: 16px 0 24px;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.sunset-feature .button-white:focus-visible {
+  outline: 2.5px solid #fff4e1;
+  outline-offset: 3px;
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  body[data-page="home"] .journal-hero-copy {
+    left: calc(50% + 48px);
+    width: calc(100% - 176px);
+  }
+
+  body[data-page="home"] .journal-hero h1 {
+    font-size: clamp(4.25rem, 9.2vw, 5.75rem);
+  }
+
+  .hero-scroll {
+    left: calc(50% + 48px);
+  }
+
+  .editorial-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .editorial-intro h2 {
+    padding-left: 0;
+  }
+
+  .feature-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .water-feature {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 26px;
+  }
+
+  .journal-islands {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .journal-islands img,
+  .journal-islands article:nth-child(2) img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 767px) {
+  body[data-page="home"] .journal-hero {
+    height: 100svh;
+    min-height: 620px;
+    max-height: 844px;
+  }
+
+  body[data-page="home"] .journal-hero-copy {
+    top: clamp(190px, 28vh, 250px);
+    width: calc(100% - 40px);
+  }
+
+  body[data-page="home"] .journal-hero h1 {
+    font-size: clamp(3.35rem, 15.5vw, 4.25rem);
+    white-space: nowrap;
+  }
+
+  body[data-page="home"] .journal-hero p {
+    max-width: 31ch;
+    margin-top: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-scroll {
+    bottom: clamp(118px, 17vh, 152px);
+  }
+
+  body[data-page="home"] main.journal-container {
+    gap: 52px;
+    padding-top: 32px;
+  }
+
+  .editorial-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    min-height: 0;
+  }
+
+  .editorial-intro h2 {
+    padding-left: 0;
+    font-size: 3.6rem;
+  }
+
+  .editorial-intro p {
+    font-size: 1rem;
+  }
+
+  .feature-photo {
+    height: 230px;
+  }
+
+  .feature-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .feature-caption p {
+    font-size: 1rem;
+  }
+
+  .water-feature {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .water-feature p {
+    font-size: 1rem;
+  }
+
+  .water-feature img {
+    height: 225px;
+  }
+
+  .journal-islands {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-top: 20px;
+  }
+
+  .journal-islands img,
+  .journal-islands article:nth-child(2) img {
+    height: 215px;
+  }
+
+  .sunset-feature {
+    min-height: 380px;
+    padding: 32px 24px;
+    align-items: flex-end;
+  }
+
+  .sunset-feature::after {
+    background: linear-gradient(
+      180deg,
+      rgb(16 44 42 / 24%) 0%,
+      rgb(16 44 42 / 78%) 62%,
+      rgb(16 44 42 / 88%) 100%
+    );
+  }
+
+  .sunset-feature p {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journal-islands article > a:first-child:hover img {
+    transform: none;
+  }
+}

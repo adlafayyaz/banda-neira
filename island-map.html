@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore the Banda Islands and find forts, nutmeg gardens, beaches, and diving spots."
+    />
+    <meta name="theme-color" content="#173c35" />
+    <title>Island Map | BANDA.</title>
+    <link rel="icon" href="./favicons/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="./favicons/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicons/favicon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png" />
+    <link rel="manifest" href="./favicons/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Water+Brush&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/base.css" />
+    <link rel="stylesheet" href="./src/styles/journal.css" />
+    <link rel="stylesheet" href="./src/styles/island-map.css" />
+    <script type="module" src="./src/scripts/main.js"></script>
+    <script type="module" src="./src/scripts/island-map.js"></script>
+  </head>
+  <body data-page="islands">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+      <nav class="journal-nav" aria-label="Main navigation">
+        <a href="./index.html"
+          ><i data-lucide="house" aria-hidden="true"></i><span>Home</span></a
+        ><a href="./island-map.html" aria-current="page"
+          ><i data-lucide="compass" aria-hidden="true"></i
+          ><span>Island Map</span></a
+        ><a href="./visit-guide.html"
+          ><i data-lucide="map" aria-hidden="true"></i
+          ><span>Visit Guide</span></a
+        >
+      </nav>
+    </header>
+    <div class="journal-body">
+      <div class="journal-contours" aria-hidden="true"></div>
+      <main id="main" class="islands-main journal-container">
+        <h1>Island Map</h1>
+        <p class="map-intro">Choose an island to see what’s worth a stop.</p>
+        <div class="map-columns" id="island-atlas">
+          <div class="map-controls">
+            <div class="atlas-canvas">
+              <svg
+                class="island-coastline"
+                viewBox="0 0 650 306"
+                role="group"
+                aria-label="Interactive map of the Banda Islands"
+              >
+                <defs>
+                  <pattern
+                    id="island-relief"
+                    width="1"
+                    height="1"
+                    patternContentUnits="objectBoundingBox"
+                  >
+                    <rect width="1" height="1" fill="#a2b49a" />
+                    <image
+                      href="./assets/images/atlas-relief.webp"
+                      width="1"
+                      height="1"
+                      preserveAspectRatio="xMidYMid slice"
+                    />
+                  </pattern>
+                  <path
+                    id="shore-ai"
+                    d="M213.4 108.6 L209.7 118.2 L203 124.3 L199.6 126.3 L195.3 125.2 L192.1 120.3 L190.1 114.6 L182.5 101.9 L182.4 98.6 L183.5 95.2 L185.6 93.7 L185.7 95.4 L188.4 96.9 L191.7 96 L195.6 96.5 L198.3 95.9 L208.9 98.9 L211.7 102.8 L214.3 104.3 L213.4 108.6 Z"
+                  />
+                  <path
+                    id="shore-hatta"
+                    d="M585.5 211.8 L586.3 209.9 L586.1 208.1 L584.1 204.3 L584 200.6 L585 199.4 L589.7 196.9 L591.8 190.8 L593.5 188.2 L598.2 187.1 L604.7 190.8 L607.6 194.6 L609.2 194.6 L609.5 193.8 L612.8 196.3 L612.8 197.2 L611.6 196.2 L609.9 198.1 L609.5 203.2 L607.6 208.3 L608.9 208.7 L610 211.9 L604.6 222.3 L609.8 229.9 L609.6 231.1 L607.8 232.3 L606.4 232.3 L602.9 229.1 L597.9 226.6 L593.4 226 L589 223 L588.4 221.4 L589.5 217.4 L586.9 215.2 L585.5 211.8 Z"
+                  />
+                  <path
+                    id="shore-run"
+                    d="M60.9 165.6 L43.6 167.8 L37.6 162.6 L37 160.9 L39 160.4 L42 156.4 L44 158 L45.5 158 L50.2 152.4 L52.1 152.8 L54.7 151.4 L56.6 149.4 L58.8 143.9 L64.4 139.5 L68.7 137.6 L74 131.5 L77.1 131.2 L78.1 133.3 L77.5 141 L78.9 144.3 L78.9 147.9 L77.2 151 L71.1 156.2 L65.9 163.2 L60.9 165.6 Z"
+                  />
+                  <path
+                    id="shore-nailaka"
+                    d="M81 123.2 L82.1 120.5 L83.7 120 L82.9 122.9 L80.1 123.7 L81 123.2 Z"
+                  />
+                  <path
+                    id="shore-besar"
+                    d="M355.3 150.2 L349.4 153.3 L349.3 154.7 L348 155.4 L347.1 159.7 L344.1 160.5 L342 162.1 L340.9 165.8 L337.2 164.4 L336.2 163.3 L335.5 163.7 L332.9 158.5 L329.4 155.4 L328.8 147.4 L329.7 145.6 L329.5 142.7 L331.4 139.5 L334.7 137.4 L338.6 137.5 L342.4 135.5 L348.8 133.7 L353.4 134 L356.5 137.2 L360.6 139.8 L363.9 140.6 L367.3 140.1 L372.9 137.7 L379.7 137.6 L384 136.7 L390.3 138.2 L394.4 140.9 L400 142.8 L406.4 141.4 L410.6 139.2 L413.8 139.3 L420.1 137.3 L422.8 133.8 L424.6 133 L433.8 122 L446.1 111.1 L448.4 108 L449.8 105.4 L450.3 101.3 L447.7 96.2 L448.4 95.5 L447.4 92 L448.3 88.7 L448 86.6 L450.1 83.5 L453.1 81.3 L458.6 80.9 L458.5 82.8 L454.8 88.5 L454.9 93.4 L456.6 94.4 L457.4 96.5 L455.8 98.6 L455.4 102.6 L459.9 105.7 L460.5 107 L462.5 107.7 L464 111 L463.7 113.1 L467.5 114.6 L469.2 116.1 L471.9 116.5 L471.8 118.4 L469.8 119.2 L467.5 121.8 L466.9 129.6 L468 134.8 L470.6 137.1 L474.1 138.7 L474.8 141.6 L471.8 143.8 L466.6 143.7 L462 146.7 L461.1 150 L464 154.2 L464.9 156.9 L463.9 160 L462.9 160.7 L459.7 160.6 L456.3 162 L451.7 167.8 L446.3 168.1 L443.3 169.4 L441.6 170.9 L440.7 176.5 L439.1 178.7 L436.6 178.7 L431.3 174.3 L429.2 175.9 L427.3 175.7 L426.2 173.6 L425.1 173.9 L421 170.6 L416.9 172 L415.8 176.1 L413.7 176.4 L412.4 174.8 L409.4 173.2 L406.4 168.3 L404.5 167.5 L403.2 164.6 L399.4 164 L398 165.1 L396.7 165 L395.8 166.5 L394.3 166.4 L392.3 164.7 L392.8 162.9 L389.9 158 L386.5 154.9 L383.4 155.6 L382.8 156.9 L378.7 159.2 L378 155.7 L375.8 154.9 L373.3 155.6 L373 156.8 L371.5 158.1 L370.6 161.9 L369.6 162.5 L366.2 160.7 L365.8 156 L364.6 154.6 L365.2 152.6 L364.4 151.2 L364.9 149.9 L363.6 148.2 L360.5 147.5 L358.1 148.4 L357 150.3 L355.3 150.2 Z"
+                  />
+                  <path
+                    id="shore-api"
+                    d="M375.5 109.9 L378.1 111.9 L378.7 115.8 L377.1 117.6 L376.1 120.7 L373.9 122.2 L370.4 123.1 L369 122.2 L366.1 121.9 L364 120 L361.8 122.6 L358.1 120.2 L357.1 121.1 L357 123 L354.5 122.9 L351.8 120.2 L349.1 119.9 L349.4 118.4 L348.7 117.1 L344.7 113 L343.8 112.9 L341.6 114.4 L339.6 113.2 L339.7 111.5 L341.2 109.9 L337.9 108.3 L338.7 106.5 L336.9 103.6 L338.4 99.8 L337.5 97.5 L338.4 96.5 L340.2 96.2 L341 92.4 L343.9 90.3 L343.1 89.1 L343.6 86.4 L345.8 86.2 L346.9 87.4 L348.4 86.4 L349.9 83.2 L349.7 80.3 L351.7 79.5 L354.9 76.4 L357.8 78.3 L360.3 77.5 L363.4 79.4 L364.2 81.8 L363.8 82.8 L368.5 84.7 L369.9 87.8 L373.4 88.6 L376.4 86.5 L378.3 87.6 L378.2 89.4 L376.9 91.2 L374.3 91.3 L374.8 92.7 L374.2 93.5 L374.7 94.3 L374.1 99.7 L377.3 101.1 L378.4 102.9 L376.3 108.2 L375.5 108.6 L375.5 109.9 Z"
+                  />
+                  <path
+                    id="shore-neira"
+                    d="M380.7 111.9 L380.2 110 L387.4 101.6 L389.6 95.8 L386.9 91.8 L384.4 90.6 L382.5 88.1 L382 82.4 L383.3 78.7 L382.7 77.1 L380.5 75.1 L378.1 75.6 L376.3 75 L376.3 73.7 L377.6 72.5 L380.4 72.5 L381.3 74.1 L384 75.5 L388.5 73.3 L397.8 78.5 L399.8 84.4 L401.6 95.2 L399.6 101 L403.3 102.4 L402.7 104.3 L400.3 103.7 L399.9 110.1 L398.4 113.2 L395.6 115.5 L393.2 115.9 L389.7 114.2 L388.9 114.7 L388.9 113.6 L388.1 113.3 L383.7 114 L383.8 112.9 L380.7 111.9 Z"
+                  />
+                  <path
+                    id="shore-karaka"
+                    d="M369.8 74.3 L367.6 74.8 L366.7 73.8 L368 73.2 L370 73.6 L369.8 74.3 Z"
+                  />
+                  <path
+                    id="shore-syahrir"
+                    d="M439.2 56 L441.4 57.5 L441.7 59.2 L443.3 60 L443.7 61.2 L446.2 62.7 L445.2 66.9 L443.4 69.3 L442.7 69.3 L442 64 L439.8 61.9 L440.8 59.2 L439.2 56 Z"
+                  />
+                </defs>
+                <g class="island-wash" aria-hidden="true">
+                  <use href="#shore-ai" />
+                  <use href="#shore-hatta" />
+                  <use href="#shore-run" />
+                  <use href="#shore-nailaka" />
+                  <use href="#shore-besar" />
+                  <use href="#shore-api" />
+                  <use href="#shore-neira" />
+                  <use href="#shore-karaka" />
+                  <use href="#shore-syahrir" />
+                </g>
+                <g class="coastlines">
+                  <use href="#shore-ai" data-coast="ai" data-map-pin="ai" />
+                  <use
+                    href="#shore-hatta"
+                    data-coast="hatta"
+                    data-map-pin="hatta"
+                  />
+                  <use href="#shore-run" data-coast="run" data-map-pin="run" />
+                  <use
+                    href="#shore-nailaka"
+                    data-coast="nailaka"
+                    data-map-pin="run"
+                  />
+                  <use
+                    href="#shore-besar"
+                    data-coast="besar"
+                    data-map-pin="besar"
+                  />
+                  <use href="#shore-api" data-coast="api" data-map-pin="api" />
+                  <use
+                    href="#shore-neira"
+                    data-coast="neira"
+                    data-map-pin="neira"
+                  />
+                  <use href="#shore-karaka" data-coast="karaka" />
+                  <use href="#shore-syahrir" data-coast="syahrir" />
+                </g>
+                <g class="island-map-labels">
+                  <g data-map-pin="neira">
+                    <path d="M460 58 L392.9 94.6" />
+                    <circle cx="392.9" cy="94.6" r="3.5" />
+                    <text x="460" y="50">Banda Neira</text>
+                  </g>
+                  <g data-map-pin="api">
+                    <path d="M322 62 L358 94.6" />
+                    <circle cx="358" cy="94.6" r="3.5" />
+                    <text x="322" y="54">Gunung Api</text>
+                  </g>
+                  <g data-map-pin="besar">
+                    <path d="M447 209 L424.3 145.8" />
+                    <circle cx="424.3" cy="145.8" r="3.5" />
+                    <text x="447" y="226">Banda Besar</text>
+                  </g>
+                  <g data-map-pin="run">
+                    <path d="M78 176 L59.8 153.3" />
+                    <circle cx="59.8" cy="153.3" r="3.5" />
+                    <text x="78" y="194">Pulau Run</text>
+                  </g>
+                  <g data-map-pin="ai">
+                    <path d="M182 78 L196.9 111.1" />
+                    <circle cx="196.9" cy="111.1" r="3.5" />
+                    <text x="182" y="70">Pulau Ai</text>
+                  </g>
+                  <g data-map-pin="hatta">
+                    <path d="M556 244 L599 210.5" />
+                    <circle cx="599" cy="210.5" r="3.5" />
+                    <text x="556" y="261">Pulau Hatta</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="island-buttons"
+              role="group"
+              aria-label="Choose an island"
+            >
+              <button
+                type="button"
+                data-island="neira"
+                aria-pressed="true"
+                aria-controls="island-panels"
+              >
+                Banda Neira
+              </button>
+              <button
+                type="button"
+                data-island="api"
+                aria-pressed="false"
+                aria-controls="island-panels"
+              >
+                Gunung Api
+              </button>
+              <button
+                type="button"
+                data-island="besar"
+                aria-pressed="false"
+                aria-controls="island-panels"
+              >
+                Banda Besar
+              </button>
+              <button
+                type="button"
+                data-island="run"
+                aria-pressed="false"
+                aria-controls="island-panels"
+              >
+                Pulau Run
+              </button>
+              <button
+                type="button"
+                data-island="ai"
+                aria-pressed="false"
+                aria-controls="island-panels"
+              >
+                Pulau Ai
+              </button>
+              <button
+                type="button"
+                data-island="hatta"
+                aria-pressed="false"
+                aria-controls="island-panels"
+              >
+                Pulau Hatta
+              </button>
+            </div>
+            <p
+              id="island-status"
+              class="sr-only"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </div>
+          <div id="island-panels">
+            <section
+              class="map-island"
+              id="island-neira"
+              aria-labelledby="heading-neira"
+              data-island-panel="neira"
+            >
+              <img
+                src="./assets/images/banda-neira.webp"
+                alt="Banda Neira — waterfront with Gunung Api in the background"
+                loading="eager"
+                width="1448"
+                height="1086"
+              />
+              <h2 id="heading-neira">Banda Neira</h2>
+              <p class="map-copy">
+                Walk from the Dutch forts to the houses where Mohammad Hatta and
+                Sutan Sjahrir lived in exile. The stops are all in Neira’s old
+                town.
+              </p>
+              <h3>A walk through Neira</h3>
+              <ul class="map-attractions">
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Benteng%20Belgica%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Benteng Belgica in Google Maps"
+                    ><div>
+                      <h4>Benteng Belgica</h4>
+                      <p>
+                        Look across the harbor to Gunung Api from the hilltop
+                        fort.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Benteng%20Nassau%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Benteng Nassau in Google Maps"
+                    ><div>
+                      <h4>Benteng Nassau</h4>
+                      <p>Stop at the ruins of Neira’s other Dutch fort.</p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Rumah%20Pengasingan%20Bung%20Hatta%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Rumah Pengasingan Bung Hatta in Google Maps"
+                    ><div>
+                      <h4>Rumah Pengasingan Bung Hatta</h4>
+                      <p>
+                        Visit the house where Mohammad Hatta lived in exile.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Rumah%20Sutan%20Sjahrir%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Rumah Sutan Sjahrir in Google Maps"
+                    ><div>
+                      <h4>Rumah Sutan Sjahrir</h4>
+                      <p>Follow Sjahrir’s years in exile at his former home.</p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Rumah%20Budaya%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Rumah Budaya in Google Maps"
+                    ><div>
+                      <h4>Rumah Budaya</h4>
+                      <p>
+                        Browse a small collection on Banda’s spice trade and
+                        local history.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Gereja%20Tua%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Gereja Tua Banda in Google Maps"
+                    ><div>
+                      <h4>Gereja Tua Banda</h4>
+                      <p>
+                        Take a look at the old church on the same walk through
+                        town.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+              </ul>
+            </section>
+            <section
+              class="map-island"
+              id="island-api"
+              aria-labelledby="heading-api"
+              data-island-panel="api"
+            >
+              <img
+                src="./assets/images/gunung-api.webp"
+                alt="Gunung Api Banda — volcanic island across the bay"
+                loading="lazy"
+                width="1448"
+                height="1086"
+              />
+              <h2 id="heading-api">Gunung Api</h2>
+              <p class="map-copy">
+                The cone across Neira’s harbor is an island of its own. In 1988,
+                lava ran down its slopes into the sea. That stretch of coast is
+                now a dive and snorkel site.
+              </p>
+              <h3>The cone and its lava coast</h3>
+              <ul class="map-attractions">
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Gunung%20Api%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Gunung Api Banda in Google Maps"
+                    ><div>
+                      <h4>Gunung Api Banda</h4>
+                      <p>
+                        For the full silhouette, look across the water from
+                        Neira’s waterfront.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Lava%20Flow%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Lava Flow Banda in Google Maps"
+                    ><div>
+                      <h4>Lava Flow Banda</h4>
+                      <p>
+                        Ask a local operator about visiting the reef off the old
+                        lava flow.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+              </ul>
+            </section>
+            <section
+              class="map-island"
+              id="island-besar"
+              aria-labelledby="heading-besar"
+              data-island-panel="besar"
+            >
+              <img
+                src="./assets/images/lonthoir.webp"
+                alt="Lonthoir — village on Banda Besar (Lontor)"
+                loading="lazy"
+                width="1448"
+                height="1086"
+              />
+              <h2 id="heading-besar">Banda Besar / Lontor</h2>
+              <p class="map-copy">
+                Head to Lonthoir for the nutmeg groves, then look back toward
+                Neira from the hill above the village.
+              </p>
+              <h3>A stop in Lonthoir</h3>
+              <ul class="map-attractions">
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Benteng%20Hollandia%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Benteng Hollandia in Google Maps"
+                    ><div>
+                      <h4>Benteng Hollandia</h4>
+                      <p>
+                        Climb above the village for a view toward Neira and
+                        Gunung Api.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Kebun%20Pala%20Lonthoir%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Kebun Pala Lonthoir in Google Maps"
+                    ><div>
+                      <h4>Kebun Pala Lonthoir</h4>
+                      <p>
+                        Ask a local grower to show you the split fruit and the
+                        red mace wrapped around the seed.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Sumur%20Tua%20Lonthoir%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Sumur Tua Lonthoir in Google Maps"
+                    ><div>
+                      <h4>Sumur Tua Lonthoir</h4>
+                      <p>
+                        Look for the village’s old well on the walk through
+                        Lonthoir.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+              </ul>
+            </section>
+            <section
+              class="map-island"
+              id="island-run"
+              aria-labelledby="heading-run"
+              data-island-panel="run"
+            >
+              <img
+                src="./assets/images/pulau-run.webp"
+                alt="Pulau Run — coastal village and fishing boats"
+                loading="lazy"
+                width="1448"
+                height="1086"
+              />
+              <h2 id="heading-run">Pulau Run &amp; Nailaka</h2>
+              <p class="map-copy">
+                Nutmeg put little Run on the same page as Manhattan in the 1667
+                Treaty of Breda. Pair the village with a boat stop at Nailaka,
+                the smaller island just offshore.
+              </p>
+              <h3>Two stops by boat</h3>
+              <ul class="map-attractions">
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Pulau%20Run%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Pulau Run in Google Maps"
+                    ><div>
+                      <h4>Pulau Run</h4>
+                      <p>
+                        Start in the village and ask about the island’s nutmeg
+                        growers.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Pulau%20Nailaka%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Pulau Nailaka in Google Maps"
+                    ><div>
+                      <h4>Pulau Nailaka</h4>
+                      <p>
+                        Head to the neighboring islet for the beach and a swim
+                        if the sea is calm.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+              </ul>
+            </section>
+            <section
+              class="map-island"
+              id="island-ai"
+              aria-labelledby="heading-ai"
+              data-island-panel="ai"
+            >
+              <img
+                src="./assets/images/pulau-ai.webp"
+                alt="Pulau Ai — island in the Banda archipelago"
+                loading="lazy"
+                width="1586"
+                height="992"
+              />
+              <h2 id="heading-ai">Pulau Ai</h2>
+              <p class="map-copy">
+                On Ai, split your time between the old fort in the village and a
+                reef stop. The southwest coast gives you a second option if
+                you’re heading out with a dive operator.
+              </p>
+              <h3>The village and the reef</h3>
+              <ul class="map-attractions">
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Benteng%20Revenge%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Benteng Revenge in Google Maps"
+                    ><div>
+                      <h4>Benteng Revenge</h4>
+                      <p>
+                        Find the old Fort Revenge on the west side of the
+                        village.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Perairan%20Pulau%20Ai%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Perairan Pulau Ai in Google Maps"
+                    ><div>
+                      <h4>Perairan Pulau Ai</h4>
+                      <p>
+                        Ask your operator about Southwest Ai or the dive site
+                        off Fort Revenge.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+              </ul>
+            </section>
+            <section
+              class="map-island"
+              id="island-hatta"
+              aria-labelledby="heading-hatta"
+              data-island-panel="hatta"
+            >
+              <img
+                src="./assets/images/pulau-hatta.webp"
+                alt="Pulau Hatta — island in the Banda archipelago"
+                loading="lazy"
+                width="1536"
+                height="1024"
+              />
+              <h2 id="heading-hatta">Pulau Hatta</h2>
+              <p class="map-copy">
+                Hatta sits southeast of the main cluster. Its north coast and
+                nearby Skaru Atoll are distinct dive stops. Tell your operator
+                whether you want to snorkel or dive before you set out.
+              </p>
+              <h3>Around Hatta’s reefs</h3>
+              <ul class="map-attractions">
+                <li>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Perairan%20Pulau%20Hatta%20Banda%20Maluku"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Perairan Pulau Hatta in Google Maps"
+                    ><div>
+                      <h4>Perairan Pulau Hatta</h4>
+                      <p>
+                        For a snorkel stop, ask about Hatta’s north coast before
+                        you book a boat.
+                      </p>
+                    </div>
+                    <span class="place-pin" aria-hidden="true"
+                      ><i data-lucide="arrow-up-right"></i></span
+                  ></a>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </main>
+      <footer class="journal-footer journal-container">
+        <div class="journal-footer-top">
+          <img
+            class="journal-footer-logo"
+            src="./assets/images/banda-wordmark.svg"
+            width="190"
+            height="44"
+            alt="BANDA."
+          />
+          <nav class="journal-socials" aria-label="Social media">
+            <a
+              href="https://github.com/adlafayyaz"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"
+                /></svg
+              >GitHub</a
+            ><a
+              href="https://www.linkedin.com/in/adlafayyaz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"
+                /></svg
+              >LinkedIn</a
+            ><a href="mailto:adlafayyaz@gmail.com"
+              ><i data-lucide="mail" aria-hidden="true"></i>Email</a
+            >
+          </nav>
+        </div>
+        <div class="journal-byline">
+          <p>By Muhammad Adla Fayyaz Fauzy</p>
+          <p>Banda Neira, Maluku</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
